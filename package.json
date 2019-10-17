@@ -1,0 +1,13 @@
+{
+  "name": "@miyasudokoro/demo",
+  "description": "Unit testing demonstration",
+  "version": "1.0.0",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
