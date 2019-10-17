@@ -43,3 +43,22 @@ windows in a single test makes debugging much more confusing. Another
 reason is that it gives me a better chance of finding out whether there
 are memory leaks in the code, if I give the tests themselves a chance
 to leak memory rather than discarding the window and creating a new one.
+
+# Tests & refactoring
+
+## Helper file
+For this demo, I am treating `bootstrap.js` as a "difficult" file that
+is hard to unit test. Files may be difficult if they refuse to load, if 
+they have broad state effects on different areas of the app, etc.
+The helper file `helper/bootstrap.js` allows us to test pieces
+of its logic by pulling them out individually. Once all of the logic has
+been tested, it will be safe to refactor the file, put the logic back in
+again in a testable way, and then delete the helper file. (This "redacted"
+version is actually testable, but some of the "redacted" areas of the 
+actual code cause errors when loaded into the unit test environment.)
+
+Because `activity-monitor.js` uses `namespace` and `Event` out of
+`bootstrap.js`, we would normally have to load `bootstrap.js` as a 
+dependency when testing `activity-monitor.js`. Therefore, we will
+create the helper file now in order to test `activity-monitor.js` 
+without needing to do a large amount of preparatory refactoring. 

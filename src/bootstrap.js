@@ -7,15 +7,7 @@
      * @param {string} the name of the namespace
      */
     function namespace(name, content) {
-        var parts = String(name).split('.');
-        var parent = window;
-        for (var i in parts) {
-            parent[parts[i]] = parent[parts[i]] || {};
-            parent = parent[parts[i]];
-        }
-        if (content) //$.extend(parent, content);
-        	for (var i in content)
-        		parent[i] = content[i];
+        window.helper.bootstrap.namespace( name, content );
     }
 
     window.namespace = namespace;
