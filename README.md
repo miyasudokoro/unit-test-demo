@@ -62,3 +62,19 @@ Because `activity-monitor.js` uses `namespace` and `Event` out of
 dependency when testing `activity-monitor.js`. Therefore, we will
 create the helper file now in order to test `activity-monitor.js` 
 without needing to do a large amount of preparatory refactoring. 
+
+## activity-monitor
+Some example techniques present:
+- using the `ui-setup.js` file; note that this creates and cleans up
+windows
+- cleanup of timers and event listeners inside `afterEach`
+- use of defect/issue numbers to make any code changes found during the
+unit test effort -- your unit test refactoring itself should not change 
+the function of the code because that could have unforeseen consequences;
+the defect number is commented into the test case, not the code, in order
+to avoid code clutter
+- state control using nested `describe` with `beforeEach` statements to 
+reach desired states before running tests
+- mocks & stubs -- note this is using the London school of unit testing,
+and these are used deliberately to control the refactoring effort for 
+this code

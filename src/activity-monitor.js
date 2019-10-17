@@ -42,9 +42,9 @@
 		
 		function stop() {
 			console.log('stopping activity monitor');
-			document.addEventListener('click', activityCaptured, true);
-			document.addEventListener('scroll', activityCaptured, true);
-			document.addEventListener('keydown', activityCaptured, true);
+			document.removeEventListener('click', activityCaptured, true);
+			document.removeEventListener('scroll', activityCaptured, true);
+			document.removeEventListener('keydown', activityCaptured, true);
 			onInactivityDetected.unsubscribeAll();
 			clearTimeout(timer);
 		}
